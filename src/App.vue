@@ -3,7 +3,7 @@
     <div class="container">
       <h1>KAIMEMO!</h1>
       <GoodsRegistForm/>
-      <GoodsList/>    
+      <GoodsListVue/>    
     </div>
   </div>
   
@@ -11,7 +11,7 @@
 
 <script setup>
   import GoodsRegistForm from "./components/GoodsRegistForm.vue";
-  import GoodsList from "./components/GoodsList.vue";
+  import GoodsListVue from "./components/GoodsList.vue";
 
   import 'bootstrap/dist/css/bootstrap.css'
   import 'bootstrap-vue/dist/bootstrap-vue.css'
