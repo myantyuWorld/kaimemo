@@ -35,3 +35,7 @@
 <script setup>
     import GoodsListItem from './GoodsListItem.vue';
 </script>
+
+<style>
+
+</style>
