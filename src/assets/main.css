@@ -29,3 +29,9 @@ body {
 .card {
     margin: 5px;
 }
+
+.fin {
+    text-decoration: line-through;
+    /* background-color: #ddd; */
+    color: #777;
+}

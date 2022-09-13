@@ -11,7 +11,7 @@ export const useMemoList = () => {
     const add = (memo) => {
         const id = new Date().getTime()
 
-        memoListRef.value.push({id: id, memo: memo})
+        memoListRef.value.push({id: id, memo: memo, checked: false})
         saveStorage()
     }
 
@@ -37,6 +37,15 @@ export const useMemoList = () => {
         memoListRef.value.splice(idx, 1)
         saveStorage()
     }
+
+    const check = (id) => {
+        const item = findById(id)
+        const idx = findIndexById(id)
+
+        item.checked = !item.checked
+        memoListRef.value.splice(idx, 1, item)
+        saveStorage()
+    }
     
     //
     // --------------------------------------------------------------------
@@ -59,5 +68,6 @@ export const useMemoList = () => {
         show, 
         edit,
         del,
+        check,
     }
 }

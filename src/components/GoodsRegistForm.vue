@@ -34,12 +34,17 @@
     <div class="card shadow">
         <div class="card-body">
             <div class="" v-for="item in memoListRef" :key="item.id">
-                <div class="row">
+                <div class="row" :class="{fin: item.checked}">
                     <div class="col">
-                        <input type="checkbox" class="check"/>
+                        <input 
+                        type="checkbox" 
+                        class="check" 
+                        @click="changeCheck(item.id)" 
+                        :checked="item.checked"
+                        />
                     </div>
                     <div class="col-6">
-                        <label>{{ item.memo}}</label>
+                        <label :class="{fin: item.checked}">{{ item.memo}}</label>
                     </div>
                     <div class="col">
                         <button class="btn btn-info" @click="showMemo(item.id)">編</button>
@@ -67,6 +72,7 @@ const {
     show, 
     edit, 
     del,
+    check,
 } = useMemoList()
 
 const initRegist = () => {
@@ -93,6 +99,10 @@ const editGoods = () => {
 
 const deleteGoods = (id) => {
     del(id)
+}
+
+const changeCheck = (id) => {
+    check(id)
 }
 </script>
 
