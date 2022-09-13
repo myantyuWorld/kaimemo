@@ -1,5 +1,5 @@
 <template>
-    <button class="btn" :class="props.color" @click="onClick"><slot/></button>
+    <button class="btn btn-xs" :class="props.color" @click="onClick"><slot/></button>
 </template>
 
 <script setup>

@@ -3,17 +3,19 @@
 
 body {
     font-family: "Raleway","Noto Sans JP", sans-serif;
+    width: 100vw;
+    height: 100vh;
 }
 
 .wrapper {
-    /* width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;  */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
     /* background: url("./background-image.jpg") center center no-repeat; */
-    background: url("./2.jpg") center center no-repeat;
-    background-size: cover;
+    /* background: url("./sumaran20211275d-1.jpg") center center no-repeat; */
+    background: url("./3.jpg");
+    background-color: rgb(77, 109, 45);
+    background-size: auto;
  }
 
  .container {
@@ -27,11 +29,40 @@ body {
 }
 
 .card {
-    margin: 5px;
+    margin: 15px;
+    background-color: rgb(243, 236, 219);
 }
 
 .fin {
     text-decoration: line-through;
     /* background-color: #ddd; */
     color: #777;
+}
+
+.title {
+    color: rgb(243, 236, 219);
+}
+
+.check:checked {
+    background-color: red;
+}
+
+.btn--item--add {
+    background-color: rgb(77, 109, 60);
+    border-color: rgb(77, 109, 60);
+}
+
+.btn--item--edit {
+    background-color: rgb(131, 151, 029);
+    border-color: rgb(131, 151, 029);
+}
+
+.btn--item--init {
+    background-color: rgb(225,215,055);
+    border-color: rgb(225,215,055);
+}
+
+hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }

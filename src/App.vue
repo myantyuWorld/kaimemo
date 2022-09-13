@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="">
-      <h1>KAIMEMO!</h1>
+      <h1 class="title">KAIMEMO!</h1>
       <GoodsRegistForm/>
       <!-- <GoodsListVue/>     -->
     </div>

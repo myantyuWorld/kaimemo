@@ -1,9 +1,11 @@
 <template>
     <div class="card shadow">
         <div class="card-body">
-            <div>
-                <h3>ITEM REGIST.
-                    <BaseButton color="btn-secondary" @on-click="initRegist">
+            <div class="row">
+                <div class="col">Item Regist.</div>
+                <div class="col"></div>
+                <div class="col-2">
+                    <BaseButton color="btn-secondary rounded-circle btn--item--init " @on-click="initRegist">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -12,7 +14,7 @@
                                 d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
                         </svg>
                     </BaseButton>
-                </h3>
+                </div>
             </div>
             <div class="row">
                 <div class="col-auto">
@@ -36,7 +38,7 @@
                 </div>
                 <div class="col-2">
                     <EditButton @edit-click="editGoods" :is-edit="isEditRef"></EditButton>
-                    <BaseButton color="btn-primary" @on-click="registGoods" v-show="!isEditRef">
+                    <BaseButton color="btn-primary rounded-circle btn--item--add" @on-click="registGoods" v-show="!isEditRef">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -50,19 +52,23 @@
     </div>
     <div class="card shadow">
         <div class="card-body">
+            <div class="row">
+                <div class="col">Item List.</div>
+                <div class="col-2"></div>
+            </div>
             <div class="" v-for="item in memoListRef" :key="item.id">
                 <div class="row" :class="{fin: item.checked}">
                     <div class="col">
-                        <input type="checkbox" class="check" @click="changeCheck(item.id)" :checked="item.checked" />
+                        <label :class="{fin: item.checked}">
+                            <input type="checkbox" class="check" @click="changeCheck(item.id)" :checked="item.checked" />
+                            {{ item.memo}}
+                        </label>
                     </div>
-                    <div class="col-6">
-                        <label :class="{fin: item.checked}">{{ item.memo}}</label>
-                    </div>
-                    <div class="col">
+                    <div class="col-2">
                         <EditButton @edit-click="showMemo(item.id)" :is-edit="true"></EditButton>
                     </div>
-                    <div class="col">
-                        <BaseButton color="btn-danger" @on-click="deleteGoods(item.id)">
+                    <div class="col-2">
+                        <BaseButton color="btn-danger rounded-circle" @on-click="deleteGoods(item.id)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -71,6 +77,7 @@
                         </BaseButton>
                     </div>
                 </div>
+                <hr/>
             </div>
         </div>
     </div>

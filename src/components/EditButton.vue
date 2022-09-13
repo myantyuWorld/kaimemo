@@ -1,5 +1,5 @@
 <template>
-    <BaseButton color="btn-info" @on-click="emit('edit-click')" v-show="props.isEdit">
+    <BaseButton color="btn-info rounded-circle btn--item--edit" @on-click="emit('edit-click')" v-show="props.isEdit">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
             viewBox="0 0 16 16">
             <path
