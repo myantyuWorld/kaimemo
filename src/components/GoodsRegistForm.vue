@@ -2,7 +2,7 @@
     <div class="card shadow">
         <div class="card-body">
             <div>
-                <h3>ITEM REGIST.</h3>
+                <h3>ITEM REGIST.<button class="btn btn-secondary" @click="initRegist">初期化</button></h3>
             </div>
             <div class="row">
                 <div class="col-auto">
@@ -33,19 +33,19 @@
     </div>
     <div class="card shadow">
         <div class="card-body">
-            <div class="" v-for="item in memoList" :key="item.id">
+            <div class="" v-for="item in memoListRef" :key="item.id">
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col">
                         <input type="checkbox" class="check"/>
                     </div>
-                    <div class="col-8">
+                    <div class="col-6">
                         <label>{{ item.memo}}</label>
                     </div>
-                    <div class="col-2">
-                        <button class="btn btn-info" @click="showTodo(item.id)">編</button>
+                    <div class="col">
+                        <button class="btn btn-info" @click="showMemo(item.id)">編</button>
                     </div>
-                    <div class="col-2">
-                        <button class="btn btn-danger">削</button>
+                    <div class="col">
+                        <button class="btn btn-danger" @click="deleteGoods(item.id)">削</button>
                     </div>
                 </div>
             </div>
@@ -55,51 +55,44 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useMemoList } from '../composables/useMemoList'
 
 const memoRef = ref('')
 const foodCheckRef = ref(true)
 const nessesaryCheckRef = ref(true)
 const isEditRef = ref(false)
-const memoList = ref([])
+const { 
+    memoListRef, 
+    add, 
+    show, 
+    edit, 
+    del,
+} = useMemoList()
 
-let editId = ''
-
-const ls  = localStorage.memoList
-memoList.value = ls ? JSON.parse(ls) : [];
-
-const registGoods = () => {
-    const id = new Date().getTime()
-
-    memoList.value.push({id: id, memo: memoRef.value})
-    localStorage.memoList = JSON.stringify(memoList.value)
+const initRegist = () => {
+    isEditRef.value = false
     memoRef.value = ''
 }
 
-/**
- * 一覧で選択した買い物品を入力欄に表示する
- * @param id 
- */
-const showTodo = (id) => {
-    console.log(id);
+const registGoods = () => {
+    add(memoRef.value)
+    memoRef.value = ''
+}
 
-    const item = memoList.value.find((x) => x.id === id)
-
-    memoRef.value = item.memo
-    editId = id
+const showMemo = (id) => {
+    memoRef.value = show(id)
     isEditRef.value = true
 }
 
 const editGoods = () => {
-    const item = memoList.value.find((item) => item.id === editId)
-    const idx = memoList.value.findIndex((item) => item.id === editId)
-
-    item.memo = memoRef.value
-    memoList.value.splice(idx, 1, item)
-
-    localStorage.memoList = JSON.stringify(memoList.value)
+    edit(memoRef.value)
 
     isEditRef.value = false
     memoRef.value = ''
+}
+
+const deleteGoods = (id) => {
+    del(id)
 }
 </script>
 
