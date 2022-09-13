@@ -29,9 +29,26 @@
                 </div>
             </div>
         </div>
-        {{foodCheckRef}}
-        {{nessesaryCheckRef}}
-        {{memoRef}}
+    </div>
+    <div class="card shadow">
+        <div class="card-body">
+            <div class="" v-for="item in memoList" :key="item.id">
+                <div class="row">
+                    <div class="col-1">
+                        <input type="checkbox" class="check"/>
+                    </div>
+                    <div class="col-5">
+                        <label>{{ item.memo}}</label>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-info" @click="showTodo(item.id)">編</button>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-danger">削</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -43,12 +60,22 @@ const foodCheckRef = ref(true)
 const nessesaryCheckRef = ref(true)
 const memoList = ref([])
 
+const ls  = localStorage.memoList
+memoList.value = ls ? JSON.parse(ls) : [];
+
 const registGoods = () => {
     const id = new Date().getTime()
 
     memoList.value.push({id: id, memo: memoRef.value})
     localStorage.memoList = JSON.stringify(memoList.value)
     memoRef.value = ''
+}
+
+const showTodo = (id) => {
+    console.log(id);
+
+    const item = memoList.value.find((x) => x.id === id)
+    memoRef.value = item.memo
 }
 </script>
 

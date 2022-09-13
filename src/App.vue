@@ -3,7 +3,7 @@
     <div class="container">
       <h1>KAIMEMO!</h1>
       <GoodsRegistForm/>
-      <GoodsListVue/>    
+      <!-- <GoodsListVue/>     -->
     </div>
   </div>
   
