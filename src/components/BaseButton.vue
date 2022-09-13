@@ -8,6 +8,4 @@
     const onClick = () => {
         emit('on-click')
     }
-    
-    const aaa = () => {}
 </script>
