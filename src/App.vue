@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="container">
+    <div class="">
       <h1>KAIMEMO!</h1>
       <GoodsRegistForm/>
       <!-- <GoodsListVue/>     -->

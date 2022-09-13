@@ -19,13 +19,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-auto">
+                <div class="col-10">
                     <div class="form-group">
                         <input type="email" class="form-control" placeholder="15文字以内で入力" v-model="memoRef">
                     </div>
                 </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary" @click="registGoods">ADD</button>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-info" @click="editGoods" v-show="isEditRef">編</button>
+                    <button type="submit" class="btn btn-primary" @click="registGoods" v-show="!isEditRef">追</button>
                 </div>
             </div>
         </div>
@@ -37,7 +38,7 @@
                     <div class="col-1">
                         <input type="checkbox" class="check"/>
                     </div>
-                    <div class="col-5">
+                    <div class="col-8">
                         <label>{{ item.memo}}</label>
                     </div>
                     <div class="col-2">
@@ -58,7 +59,10 @@ import { ref } from 'vue';
 const memoRef = ref('')
 const foodCheckRef = ref(true)
 const nessesaryCheckRef = ref(true)
+const isEditRef = ref(false)
 const memoList = ref([])
+
+let editId = ''
 
 const ls  = localStorage.memoList
 memoList.value = ls ? JSON.parse(ls) : [];
@@ -71,11 +75,31 @@ const registGoods = () => {
     memoRef.value = ''
 }
 
+/**
+ * 一覧で選択した買い物品を入力欄に表示する
+ * @param id 
+ */
 const showTodo = (id) => {
     console.log(id);
 
     const item = memoList.value.find((x) => x.id === id)
+
     memoRef.value = item.memo
+    editId = id
+    isEditRef.value = true
+}
+
+const editGoods = () => {
+    const item = memoList.value.find((item) => item.id === editId)
+    const idx = memoList.value.findIndex((item) => item.id === editId)
+
+    item.memo = memoRef.value
+    memoList.value.splice(idx, 1, item)
+
+    localStorage.memoList = JSON.stringify(memoList.value)
+
+    isEditRef.value = false
+    memoRef.value = ''
 }
 </script>
 
