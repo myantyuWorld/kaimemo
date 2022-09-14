@@ -9,6 +9,16 @@
       "id": 2,
       "title": "json-server",
       "author": "typicode"
+    },
+    {
+      "id": 3,
+      "title": "from rest client",
+      "author": "myantyuWorld"
+    },
+    {
+      "id": 4,
+      "title": "from rest client 4",
+      "author": "myantyuWorld"
     }
   ],
   "comments": [
@@ -20,5 +30,12 @@
   ],
   "profile": {
     "name": "typicode"
+  },
+  "user" : {
+    "result_id": 0,
+    "data" : {
+      "user_id" : "K-(8)--K"
+    }
   }
+
 }

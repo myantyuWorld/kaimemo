@@ -8,4 +8,4 @@ EXPOSE 3000
 
 ENTRYPOINT ["json-server"]
 
-CMD ["--watch", "db.json", "--host", "0.0.0.0"]
+CMD ["--watch", "db.json", "--host", "0.0.0.0", "--routes", "routes.json"]
