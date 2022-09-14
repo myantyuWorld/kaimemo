@@ -1,41 +1,53 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": 2,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": 3,
-      "title": "from rest client",
-      "author": "myantyuWorld"
-    },
-    {
-      "id": 4,
-      "title": "from rest client 4",
-      "author": "myantyuWorld"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
   "profile": {
     "name": "typicode"
   },
   "user" : {
-    "result_id": 0,
+    "result_id": "0",
     "data" : {
       "user_id" : "K-(8)--K"
     }
-  }
+  },
+  "goods" : {
+      "result_id":"0",
+    "data" : [
+    {
+      "user_id":"demo",
+      "item_id":"1",
+      "category_id":"1",
+      "item_name":"K-(15)--K"
+    },
+    {
+      "user_id":"demo",
+      "item_id":"2",
+      "category_id":"1",
+      "item_name":"K-(15)--K"
+    },
+    {
+      "user_id":"demo",
+      "item_id":"3",
+      "category_id":"1",
+      "item_name":"K-(15)--K"
+    },
+    {
+      "user_id":"demo",
+      "item_id":"1",
+      "category_id":"2",
+      "item_name":"洗える紙タオル"
+    },
+    {
+      "user_id":"demo",
+      "item_id":"2",
+      "category_id":"2",
+      "item_name":"シャンプー"
+    },
+    {
+      "user_id":"demo",
+      "item_id":"3",
+      "category_id":"2",
+      "item_name":"洗濯洗剤"
+    }
+  ]
+}
 
 }
