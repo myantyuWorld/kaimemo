@@ -22,7 +22,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import GoodsRegistForm from "../components/GoodsRegistForm.vue";
-import GoodsListVue from "../components/GoodsList.vue";
+import GoodsListVue from "../components/goods-list/GoodsList.vue";
 import { useMemoList } from '../composables/useMemoList'
 
 import 'bootstrap/dist/css/bootstrap.css'
