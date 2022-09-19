@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import { apiBase } from './api.js'
 
 export const useMemoList = () => {
 
@@ -7,6 +8,12 @@ export const useMemoList = () => {
     const editId = ref(-1)
 
     memoListRef.value = ls ? JSON.parse(ls) : []
+
+    console.log(apiBase.get('goods'))
+    apiBase.get('goods')
+    .then((response) => {
+        console.log(response.data)
+    })
 
     const add = (memo, category, user_id) => {
         const id = new Date().getTime()
