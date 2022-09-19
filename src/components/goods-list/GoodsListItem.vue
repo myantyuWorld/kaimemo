@@ -30,8 +30,8 @@
 </template>
 
 <script setup>
-import BaseButton from './BaseButton.vue'
-import EditButton from './EditButton.vue';
+import BaseButton from '../btn/BaseButton.vue'
+import EditButton from '../btn/EditButton.vue';
 
 const props = defineProps({
     item: Object
