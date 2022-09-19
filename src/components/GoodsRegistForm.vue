@@ -81,6 +81,7 @@
             </div>
         </div>
     </div>
+    <GoodsList/>
 </template>
 
 <script setup>
@@ -88,6 +89,7 @@ import { ref } from 'vue';
 import { useMemoList } from '../composables/useMemoList'
 import BaseButton from './BaseButton.vue'
 import EditButton from './EditButton.vue';
+import GoodsList from './GoodsList.vue';
 
 const memoRef = ref('')
 const foodCheckRef = ref(true)
@@ -101,15 +103,6 @@ const {
     del,
     check,
 } = useMemoList()
-
-// -----
-const test = () => {
-    console.log("call test!")
-}
-
-
-
-// -----
 
 const initRegist = () => {
     isEditRef.value = false
