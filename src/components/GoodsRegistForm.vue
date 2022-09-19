@@ -19,13 +19,13 @@
             <div class="row">
                 <div class="col-auto">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" v-model="foodCheckRef">
+                        <input class="form-check-input" type="checkbox" >
                         <label class="form-check-label" for="inlineCheckbox1">🍔</label>
                     </div>
                 </div>
                 <div class="col-auto">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" v-model="nessesaryCheckRef">
+                        <input class="form-check-input" type="checkbox" >
                         <label class="form-check-label" for="inlineCheckbox2">🧴</label>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-10">
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="15文字以内で入力" v-model="props.memoRef">
+                        <input type="email" class="form-control" placeholder="15文字以内で入力" v-model="memoComputed">
                     </div>
                 </div>
                 <div class="col-2">
@@ -53,6 +53,7 @@
 </template>
 
 <script setup>
+import {computed, toRefs} from 'vue'
 import BaseButton from './BaseButton.vue'
 import EditButton from './EditButton.vue';
 
@@ -60,7 +61,15 @@ const props = defineProps({
     memoRef: String,
     isEditRef: Boolean
 })
-const emit = defineEmits()
+const { memoRef } = toRefs(props)
+
+const emit = defineEmits(['update:memo-ref'])
+const memoComputed = computed({
+    get: () => memoRef.value,
+    set: (value) => {
+        emit('update:memo-ref', value)
+    }
+})
 
 </script>
 

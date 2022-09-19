@@ -2,9 +2,9 @@
   <div class="wrapper">
     <div class="">
       <h1 class="title">KAIMEMO!</h1>
-
+      
       <GoodsRegistForm 
-      :memo-ref="memoRef" 
+      v-model:memo-ref="memoComputed"
       :is-edit-ref="isEditRef"
       @init-click="initRegist" 
       @edit-goods="editGoods" 
@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import GoodsRegistForm from "./components/GoodsRegistForm.vue";
 import GoodsListVue from "./components/GoodsList.vue";
 import { useMemoList } from './composables/useMemoList'
@@ -29,6 +29,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const memoRef = ref('')
 const isEditRef = ref(false)
+
+// 
+const memoComputed = computed({
+  get: () => memoRef.value,
+  set: (value) => (memoRef.value = value),
+})
+// ---- メモサービス
 
 const {
   memoListRef,
