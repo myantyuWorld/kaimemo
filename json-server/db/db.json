@@ -2,15 +2,7 @@
   "profile": {
     "name": "typicode"
   },
-  "user" : {
-    "result_id": "0",
-    "data" : {
-      "user_id" : "K-(8)--K"
-    }
-  },
-  "goods" : {
-      "result_id":"0",
-    "data" : [
+  "goods" : [
     {
       "user_id":"demo",
       "item_id":"1",
@@ -46,8 +38,20 @@
       "item_id":"3",
       "category_id":"2",
       "item_name":"洗濯洗剤"
+    },
+    {
+      "user_id":"myantyuWorld",
+      "item_id":"2",
+      "category_id":"2",
+      "item_name":"シャンプー"
+    },
+    {
+      "user_id":"myantyuWorld",
+      "item_id":"3",
+      "category_id":"2",
+      "item_name":"洗濯洗剤"
     }
   ]
-}
+
 
 }

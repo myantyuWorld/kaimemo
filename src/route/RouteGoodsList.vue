@@ -33,10 +33,7 @@ const memoRef = ref('')
 const isEditRef = ref(false)
 const route = useRoute()
 
-console.log(route.query)
-console.log(route.query.user_id)
 const user_id = route.query.user_id
-
 
 // 
 const memoComputed = computed({
