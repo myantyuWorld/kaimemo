@@ -8,10 +8,10 @@ export const useMemoList = () => {
 
     memoListRef.value = ls ? JSON.parse(ls) : []
 
-    const add = (memo) => {
+    const add = (memo, category) => {
         const id = new Date().getTime()
 
-        memoListRef.value.push({id: id, memo: memo, checked: false})
+        memoListRef.value.push({id: id, memo: memo, category: category, checked: false})
         saveStorage()
     }
 
