@@ -1,6 +1,8 @@
 <template>
-    <div>
-      <h2>テストページ2</h2>
-      <router-link to="/">RouteGoodsListへ</router-link>
+  <div class="wrapper">
+    <router-link to="/">RouteGoodsListへ</router-link>
+    <div class="">
+      <h1 class="title">KAIMEMO!</h1>
     </div>
-  </template>
+  </div>
+</template>
