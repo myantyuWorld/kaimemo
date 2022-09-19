@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <router-link to="/second">次のページ</router-link>
+    <router-link to="/second">一週間分の買い物金額入力</router-link>
     <div class="">
       <h1 class="title">KAIMEMO!</h1>
       <GoodsRegistForm 
