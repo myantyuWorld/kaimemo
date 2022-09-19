@@ -19,13 +19,13 @@
             <div class="row">
                 <div class="col-auto">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" >
+                        <input class="form-check-input" type="radio" value="0" v-model="category" >
                         <label class="form-check-label" for="inlineCheckbox1">🍔</label>
                     </div>
                 </div>
                 <div class="col-auto">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" >
+                        <input class="form-check-input" type="radio" value="1" v-model="category">
                         <label class="form-check-label" for="inlineCheckbox2">🧴</label>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-2">
                     <EditButton @edit-click="emit('edit-goods')" :is-edit="isEditRef"></EditButton>
-                    <BaseButton color="btn-primary rounded-circle btn--item--add" @on-click="emit('regist-goods')" v-show="!props.isEditRef">
+                    <BaseButton color="btn-primary rounded-circle btn--item--add" @on-click="emit('regist-goods', category)" v-show="!props.isEditRef">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -53,9 +53,12 @@
 </template>
 
 <script setup>
-import {computed, toRefs} from 'vue'
+import {ref, computed, toRefs} from 'vue'
 import BaseButton from './BaseButton.vue'
 import EditButton from './EditButton.vue';
+
+const category = ref('0') // 初期値は食費
+
 
 const props = defineProps({
     memoRef: String,

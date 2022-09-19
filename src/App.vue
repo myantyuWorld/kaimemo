@@ -53,11 +53,11 @@ const initRegist = () => {
   memoRef.value = ''
 }
 
-const registGoods = () => {
+const registGoods = (category) => {
   console.log("call regist goods")
   console.log(memoRef.value)
 
-  add(memoRef.value)
+  add(memoRef.value, category)
   memoRef.value = ''
 }
 
