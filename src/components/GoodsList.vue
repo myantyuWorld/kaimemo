@@ -41,8 +41,6 @@
 </template>
 
 <script setup>
-import BaseButton from './BaseButton.vue'
-import EditButton from './EditButton.vue';
 import GoodsListItem from './GoodsListItem.vue';
 
 const props = defineProps({ memoListRef: Object })

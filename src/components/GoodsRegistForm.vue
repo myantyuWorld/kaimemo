@@ -54,8 +54,8 @@
 
 <script setup>
 import {ref, computed, toRefs} from 'vue'
-import BaseButton from './BaseButton.vue'
-import EditButton from './EditButton.vue';
+import BaseButton from './btn/BaseButton.vue'
+import EditButton from './btn/EditButton.vue';
 
 const category = ref('0') // 初期値は食費
 
