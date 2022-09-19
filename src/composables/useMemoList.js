@@ -1,24 +1,25 @@
 import { ref } from 'vue'
 import { apiBase } from './api.js'
+import { useRoute } from 'vue-router'
 
 export const useMemoList = () => {
 
     const ls = localStorage.memoList
     const memoListRef = ref([])
     const editId = ref(-1)
+    const route = useRoute()
 
     memoListRef.value = ls ? JSON.parse(ls) : []
 
-    console.log(apiBase.get('goods'))
-    apiBase.get('goods')
+    apiBase.get('goods', { user_id: route.query.user_id })
     .then((response) => {
         console.log(response.data)
     })
 
-    const add = (memo, category, user_id) => {
+    const add = (memo, category) => {
         const id = new Date().getTime()
 
-        memoListRef.value.push({user_id: user_id, id: id, memo: memo, category_id: category, checked: false})
+        memoListRef.value.push({user_id: route.query.user_id, id: id, memo: memo, category_id: category, checked: false})
         saveStorage()
     }
 

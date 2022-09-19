@@ -21,7 +21,6 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
 import GoodsRegistForm from "../components/GoodsRegistForm.vue";
 import GoodsListVue from "../components/goods-list/GoodsList.vue";
 import { useMemoList } from '../composables/useMemoList'
@@ -31,9 +30,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const memoRef = ref('')
 const isEditRef = ref(false)
-const route = useRoute()
-
-const user_id = route.query.user_id
 
 // 
 const memoComputed = computed({
@@ -61,7 +57,7 @@ const registGoods = (category) => {
   console.log("call regist goods")
   console.log(memoRef.value)
 
-  add(memoRef.value, category, user_id)
+  add(memoRef.value, category)
   memoRef.value = ''
 }
 
