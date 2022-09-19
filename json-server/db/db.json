@@ -5,51 +5,39 @@
   "goods" : [
     {
       "user_id":"demo",
-      "item_id":"1",
+      "id":"1",
+      "category_id":"0",
+      "memo":"K-(15)--K"
+    },
+    {
+      "user_id":"demo",
+      "id":"2",
+      "category_id":"0",
+      "memo":"K-(15)--K"
+    },
+    {
+      "user_id":"demo",
+      "id":"2",
       "category_id":"1",
-      "item_name":"K-(15)--K"
+      "memo":"シャンプー"
     },
     {
       "user_id":"demo",
-      "item_id":"2",
+      "id":"3",
       "category_id":"1",
-      "item_name":"K-(15)--K"
-    },
-    {
-      "user_id":"demo",
-      "item_id":"3",
-      "category_id":"1",
-      "item_name":"K-(15)--K"
-    },
-    {
-      "user_id":"demo",
-      "item_id":"1",
-      "category_id":"2",
-      "item_name":"洗える紙タオル"
-    },
-    {
-      "user_id":"demo",
-      "item_id":"2",
-      "category_id":"2",
-      "item_name":"シャンプー"
-    },
-    {
-      "user_id":"demo",
-      "item_id":"3",
-      "category_id":"2",
-      "item_name":"洗濯洗剤"
+      "memo":"洗濯洗剤"
     },
     {
       "user_id":"myantyuWorld",
-      "item_id":"2",
-      "category_id":"2",
-      "item_name":"シャンプー"
+      "id":"2",
+      "category_id":"1",
+      "memo":"シャンプー"
     },
     {
       "user_id":"myantyuWorld",
-      "item_id":"3",
-      "category_id":"2",
-      "item_name":"洗濯洗剤"
+      "id":"3",
+      "category_id":"1",
+      "memo":"洗濯洗剤"
     }
   ]
 
