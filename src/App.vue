@@ -5,6 +5,7 @@
 
       <GoodsRegistForm 
       :memo-ref="memoRef" 
+      :is-edit-ref="isEditRef"
       @init-click="initRegist" 
       @edit-goods="editGoods" 
       @regist-goods="registGoods" />
@@ -27,8 +28,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const memoRef = ref('')
-const foodCheckRef = ref(true)
-const nessesaryCheckRef = ref(true)
 const isEditRef = ref(false)
 
 const {
@@ -48,6 +47,8 @@ const initRegist = () => {
 
 const registGoods = () => {
   console.log("call regist goods")
+  console.log(memoRef.value)
+
   add(memoRef.value)
   memoRef.value = ''
 }
@@ -55,7 +56,6 @@ const registGoods = () => {
 const showMemo = (id) => {
   console.log("call show memo")
   console.log(id)
-
 
   memoRef.value = show(id)
   isEditRef.value = true

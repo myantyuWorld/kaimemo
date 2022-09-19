@@ -55,7 +55,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import BaseButton from './BaseButton.vue'
 import EditButton from './EditButton.vue';
 
