@@ -13,6 +13,7 @@
       <GoodsListVue 
       :memo-list-ref="memoListRef" 
       @show-memo="showMemo"
+      @change-check="changeCheck"
       @delete-goods="deleteGoods"/>
     </div>
   </div>

@@ -28,8 +28,11 @@
                 <div class="" v-for="item in memoListRef" :key="item.id">
                     <div class="row">
                         <div class="col">
-                            <input type="checkbox" class="check" />
-                            <label>{{ item.memo}}</label>
+                            <label :class="{fin: item.checked}">
+                                <input type="checkbox" class="check" @click="emit('change-check', item.id)"
+                                    :checked="item.checked" />
+                                {{ item.memo}}
+                            </label>
                         </div>
                         <div class="col-2">
                             <EditButton @edit-click="emit('show-memo', item.id)" :is-edit="true"></EditButton>
@@ -58,7 +61,7 @@
 import BaseButton from './BaseButton.vue'
 import EditButton from './EditButton.vue';
 
-const props = defineProps({memoListRef: Object})
+const props = defineProps({ memoListRef: Object })
 const emit = defineEmits()
 
 
