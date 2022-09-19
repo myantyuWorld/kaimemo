@@ -1,43 +1,53 @@
 <template>
-    <div class="card mt-2 shadow">
-        <div class="card-body">
-
-            <div class="row">
-                <h3>SHOPPING ITEMS.</h3>
-                <button class="btn btn-danger">+</button>
-            </div>
-            <div class="row">
-                <div class="col-auto">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox">
-                        <label class="form-check-label" for="inlineCheckbox1">FOODS</label>
+    <div class="mt-2">
+        <div class="card">
+            <div class="card-body shadow">
+                <div class="row">
+                    <div class="col">
+                        SHOPPING ITEMS.
+                    </div>
+                    <div class="col"></div>
+                    <div class="col-2">
+                        <button class="btn btn-danger">+</button>
                     </div>
                 </div>
-                <div class="col-auto">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox">
-                        <label class="form-check-label" for="inlineCheckbox2">NESSESARY</label>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- // 買い物一覧 -->
-            <!-- <GoodsListItem></GoodsListItem>
-            <GoodsListItem></GoodsListItem>
-            <GoodsListItem></GoodsListItem>
-            <GoodsListItem></GoodsListItem> -->
-            <div class="" v-for="item in memoListRef" :key="item.id">
                 <div class="row">
                     <div class="col-auto">
-                        <input type="checkbox" class="check"/>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label" for="inlineCheckbox1">🍔</label>
+                        </div>
                     </div>
                     <div class="col-auto">
-                        <label>{{ item.memo}}</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label" for="inlineCheckbox2">🧴</label>
+                        </div>
                     </div>
-                    <div class="col-auto">
-                        <button class="btn btn-info">編</button>
-                        <button class="btn btn-danger">削</button>
+                </div>
+                <div class="" v-for="item in memoListRef" :key="item.id">
+                    <div class="row">
+                        <div class="col">
+                            <label :class="{fin: item.checked}">
+                                <input type="checkbox" class="check" @click="emit('change-check', item.id)"
+                                    :checked="item.checked" />
+                                {{ item.memo}}
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <EditButton @edit-click="emit('show-memo', item.id)" :is-edit="true"></EditButton>
+                        </div>
+                        <div class="col-2">
+                            <BaseButton color="btn-danger rounded-circle" @on-click="emit('delete-goods', item.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M6.5 1a.5.5 0 0 0-.5.5v1h4v-1a.5.5 0 0 0-.5-.5h-3ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1H3.042l.846 10.58a1 1 0 0 0 .997.92h6.23a1 1 0 0 0 .997-.92l.846-10.58Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                                </svg>
+                            </BaseButton>
+                        </div>
                     </div>
+                    <hr />
                 </div>
             </div>
 
@@ -48,13 +58,13 @@
 </template>
 
 <script setup>
-    // import GoodsListItem from './GoodsListItem.vue';
-    import { ref } from 'vue';
+import BaseButton from './BaseButton.vue'
+import EditButton from './EditButton.vue';
 
-    const memoListRef = ref([])
-    const ls  = localStorage.memoList
-    memoListRef.value = ls ? JSON.parse(ls) : [];
-    
+const props = defineProps({ memoListRef: Object })
+const emit = defineEmits()
+
+
 </script>
 
 <style>
