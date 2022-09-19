@@ -4,7 +4,7 @@
 body {
     font-family: "Raleway","Noto Sans JP", sans-serif;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .wrapper {
@@ -16,6 +16,8 @@ body {
     background: url("./4.jpg");
     background-color: rgb(77, 109, 45);
     background-size: auto;
+    padding: 10px;
+    height: 100%;
  }
 
  .container {
