@@ -35,6 +35,7 @@ const route = useRoute()
 
 console.log(route.query)
 console.log(route.query.user_id)
+const user_id = route.query.user_id
 
 
 // 
@@ -63,7 +64,7 @@ const registGoods = (category) => {
   console.log("call regist goods")
   console.log(memoRef.value)
 
-  add(memoRef.value, category)
+  add(memoRef.value, category, user_id)
   memoRef.value = ''
 }
 
