@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import RouteGoodsList from '@/route/RouteGoodsList.vue'
 import RouteTotalAMount from '@/route/RouteTotalAMount.vue'
+import RouteLogOn from '@/route/RouteLogOn.vue'
 
 const routes = [
   {
@@ -12,7 +13,13 @@ const routes = [
     path: '/second',
     name: 'RouteTotalAMount',
     component: RouteTotalAMount
-  }
+  },
+  {
+    path: '/logon',
+    name: 'LogOn',
+    component: RouteLogOn
+  },
+
 ]
 
 const router = createRouter({

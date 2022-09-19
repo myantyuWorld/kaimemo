@@ -21,6 +21,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
 import GoodsRegistForm from "../components/GoodsRegistForm.vue";
 import GoodsListVue from "../components/goods-list/GoodsList.vue";
 import { useMemoList } from '../composables/useMemoList'
@@ -30,6 +31,11 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const memoRef = ref('')
 const isEditRef = ref(false)
+const route = useRoute()
+
+console.log(route.query)
+console.log(route.query.user_id)
+
 
 // 
 const memoComputed = computed({
