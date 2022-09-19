@@ -32,10 +32,10 @@
                             <label>{{ item.memo}}</label>
                         </div>
                         <div class="col-2">
-                            <EditButton @edit-click="showMemo(item.id)" :is-edit="true"></EditButton>
+                            <EditButton @edit-click="emit('show-memo', item.id)" :is-edit="true"></EditButton>
                         </div>
                         <div class="col-2">
-                            <BaseButton color="btn-danger rounded-circle" @on-click="deleteGoods(item.id)">
+                            <BaseButton color="btn-danger rounded-circle" @on-click="emit('delete-goods', item.id)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-trash3" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -55,14 +55,13 @@
 </template>
 
 <script setup>
-// import GoodsListItem from './GoodsListItem.vue';
 import { ref } from 'vue';
 import BaseButton from './BaseButton.vue'
 import EditButton from './EditButton.vue';
 
-const memoListRef = ref([])
-const ls = localStorage.memoList
-memoListRef.value = ls ? JSON.parse(ls) : [];
+const props = defineProps({memoListRef: Object})
+const emit = defineEmits()
+
 
 </script>
 

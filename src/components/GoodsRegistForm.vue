@@ -5,7 +5,7 @@
                 <div class="col">Item Regist.</div>
                 <div class="col"></div>
                 <div class="col-2">
-                    <BaseButton color="btn-secondary rounded-circle btn--item--init " @on-click="initRegist">
+                    <BaseButton color="btn-secondary rounded-circle btn--item--init " @on-click="emit('init-click')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -33,12 +33,12 @@
             <div class="row">
                 <div class="col-10">
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="15文字以内で入力" v-model="memoRef">
+                        <input type="email" class="form-control" placeholder="15文字以内で入力" v-model="props.memoRef">
                     </div>
                 </div>
                 <div class="col-2">
-                    <EditButton @edit-click="editGoods" :is-edit="isEditRef"></EditButton>
-                    <BaseButton color="btn-primary rounded-circle btn--item--add" @on-click="registGoods" v-show="!isEditRef">
+                    <EditButton @edit-click="emit('edit-goods')" :is-edit="isEditRef"></EditButton>
+                    <BaseButton color="btn-primary rounded-circle btn--item--add" @on-click="emit('regist-goods')" v-show="!isEditRef">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-    <div class="card shadow">
+    <!-- <div class="card shadow">
         <div class="card-body">
             <div class="row">
                 <div class="col">Item List.</div>
@@ -80,8 +80,8 @@
                 <hr/>
             </div>
         </div>
-    </div>
-    <GoodsList/>
+    </div> -->
+    
 </template>
 
 <script setup>
@@ -91,48 +91,15 @@ import BaseButton from './BaseButton.vue'
 import EditButton from './EditButton.vue';
 import GoodsList from './GoodsList.vue';
 
-const memoRef = ref('')
-const foodCheckRef = ref(true)
-const nessesaryCheckRef = ref(true)
-const isEditRef = ref(false)
-const {
-    memoListRef,
-    add,
-    show,
-    edit,
-    del,
-    check,
-} = useMemoList()
 
-const initRegist = () => {
-    isEditRef.value = false
-    memoRef.value = ''
-}
+const props = defineProps({
+    memoRef: String,
+})
+const emit = defineEmits()
 
-const registGoods = () => {
-    add(memoRef.value)
-    memoRef.value = ''
-}
 
-const showMemo = (id) => {
-    memoRef.value = show(id)
-    isEditRef.value = true
-}
 
-const editGoods = () => {
-    edit(memoRef.value)
 
-    isEditRef.value = false
-    memoRef.value = ''
-}
-
-const deleteGoods = (id) => {
-    del(id)
-}
-
-const changeCheck = (id) => {
-    check(id)
-}
 </script>
 
 <style>
