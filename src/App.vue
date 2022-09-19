@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="">
       <h1 class="title">KAIMEMO!</h1>
-      
+      <router-view />
       <GoodsRegistForm 
       v-model:memo-ref="memoComputed"
       :is-edit-ref="isEditRef"
