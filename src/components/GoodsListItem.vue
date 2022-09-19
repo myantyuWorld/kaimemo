@@ -1,15 +1,23 @@
 <template>
     <div class="row">
-        <div class="col">
+        <div class="col-2 d-flex align-items-center">
             <label :class="{fin: item.checked}">
                 <input type="checkbox" class="check" @click="emit('change-check', item.id)" :checked="item.checked" />
-                {{ item.memo}}
             </label>
         </div>
-        <div class="col-2">
+        <div class="col">
+            <div class="row goods__item__category">
+                <template v-if="item.category == 0">食費</template>
+                <template v-if="item.category == 1">日用品</template>
+            </div>
+            <div class="row goods__item__name">
+                {{item.memo}}
+            </div>
+        </div>
+        <div class="col-2 d-flex align-items-center">
             <EditButton @edit-click="emit('show-memo', item.id)" :is-edit="true"></EditButton>
         </div>
-        <div class="col-2">
+        <div class="col-2 d-flex align-items-center">
             <BaseButton color="btn-danger rounded-circle" @on-click="emit('delete-goods', item.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
                     viewBox="0 0 16 16">
