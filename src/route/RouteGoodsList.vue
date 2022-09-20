@@ -1,13 +1,12 @@
 <template>
     <div class="wrapper">
-        <router-link to="/second">一週間分の買い物金額入力</router-link>
         <div class="">
             <h1 class="title">KAIMEMO!</h1>
             <GoodsRegistForm v-model:memo-ref="memoComputed" :is-edit-ref="isEditRef" @init-click="initRegist"
                 @edit-goods="editGoods" @regist-goods="registGoods" />
 
             <GoodsListVue :memo-list-ref="memoListRef" @show-memo="showMemo" @change-check="changeCheck"
-                @delete-goods="deleteGoods" />
+                @delete-goods="deleteGoods" @move-total-ammount="moveTotalAmount" />
         </div>
     </div>
 </template>
@@ -27,8 +26,14 @@ const isEditRef = ref(false)
 const route = useRoute()
 const router = useRouter()
 
+
+// router
 if (!route.query.user_id) {
     router.push({name: 'LogOn'})
+}
+
+const moveTotalAmount = () => {
+    router.push({name: 'RouteTotalAMount', query: {user_id: route.query.user_id}})
 }
 
 // 
@@ -54,9 +59,6 @@ const initRegist = () => {
 }
 
 const registGoods = (category) => {
-    console.log("call regist goods")
-    console.log(memoRef.value)
-
     add(memoRef.value, category)
     memoRef.value = ''
 }

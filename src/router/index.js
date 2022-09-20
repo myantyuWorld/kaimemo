@@ -10,7 +10,7 @@ const routes = [
     component: RouteGoodsList
   },
   {
-    path: '/second',
+    path: '/total_ammount',
     name: 'RouteTotalAMount',
     component: RouteTotalAMount
   },

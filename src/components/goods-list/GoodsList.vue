@@ -8,7 +8,7 @@
                     </div>
                     <div class="col"></div>
                     <div class="col-2">
-                        <button class="btn btn-danger">+</button>
+                        <button class="btn btn-danger" @click="emit('move-total-ammount')">+</button>
                     </div>
                 </div>
                 <div class="row">

@@ -1,9 +1,8 @@
 <template>
 	<div class="wrapper">
-		<router-link to="/">買い物一覧へ</router-link>
 		<div class="">
 			<h1 class="title">KAIMEMO!</h1>
-
+			<a @click="moveGoodsList">買い物一覧へ</a>
 			<!-- /Form -->
 			<div class="card shadow">
 				<div class="card-body">
@@ -63,5 +62,14 @@
 
 <script setup>
 import BaseButton from '../components/btn/BaseButton.vue';
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
+
+const moveGoodsList = () => {
+	console.log("call moveGoodsList!")
+	router.push({ name: `RouteGoodsList`, query: {user_id: route.query.user_id} })
+}
 </script>
 
