@@ -1,17 +1,39 @@
 import { ref } from 'vue'
+import { apiBase } from './api.js'
+import { useRoute } from 'vue-router'
 
 export const useMemoList = () => {
 
-    const ls = localStorage.memoList
+    // const ls = localStorage.memoList
     const memoListRef = ref([])
     const editId = ref(-1)
+    const route = useRoute()
+    const userId = route.query.user_id
 
-    memoListRef.value = ls ? JSON.parse(ls) : []
+    apiBase.get('goods', { user_id: userId })
+    .then((response) => {
+        const ls = response.data
+        memoListRef.value = ls ? ls : []
+    })
 
     const add = (memo, category) => {
-        const id = new Date().getTime()
-
-        memoListRef.value.push({id: id, memo: memo, category: category, checked: false})
+        const now = new Date()
+        const memoObj = {
+            id: now.getTime(),
+            user_id: userId, 
+            memo: memo, 
+            category_id: category, 
+            checked: false,
+            insert_date: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
+            insert_time: `${now.getHours()}:${now.getMinutes()}`,
+            update_date: '',
+            update_time: ''
+        }
+        memoListRef.value.push(memoObj)
+        apiBase.post('goods', memoObj)
+        .then((response) => {
+            console.log(response.data)
+        })
         saveStorage()
     }
 
@@ -23,11 +45,15 @@ export const useMemoList = () => {
     }
 
     const edit = (memo) => {
-        const item = findById(editId.value)
+        const memoObj = findById(editId.value)
         const idx = findIndexById(editId.value)
 
-        item.memo = memo
-        memoListRef.value.splice(idx, 1, item)
+        memoObj.memo = memo
+        memoListRef.value.splice(idx, 1, memoObj)
+        apiBase.post('goods', memoObj)
+        .then((response) => {
+            console.log(response.data)
+        })
         saveStorage()
     }
 
@@ -44,6 +70,9 @@ export const useMemoList = () => {
 
         item.checked = !item.checked
         memoListRef.value.splice(idx, 1, item)
+
+        // 物理削除としたい（checked =trueとする
+        // TBD : POST OR PUT
         saveStorage()
     }
     

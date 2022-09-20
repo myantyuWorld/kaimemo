@@ -7,8 +7,8 @@
         </div>
         <div class="col">
             <div class="row goods__item__category" :class="{fin: item.checked}">
-                <template v-if="item.category == 0">食費</template>
-                <template v-if="item.category == 1">日用品</template>
+                <template v-if="item.category_id == '0'">食費</template>
+                <template v-if="item.category_id == '1'">日用品</template>
             </div>
             <div class="row goods__item__name" :class="{fin: item.checked}">
                 {{item.memo}}
