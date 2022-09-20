@@ -43,9 +43,7 @@
 <script setup>
     import {ref, computed} from 'vue'
     import { useRouter } from 'vue-router'
-    import * as md5 from 'md5';
-
-
+    import md5 from 'md5';
 
     let txtSeed = ref('')
     txtSeed.value = md5(new Date().getTime())
