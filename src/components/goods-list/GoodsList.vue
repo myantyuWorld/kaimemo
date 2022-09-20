@@ -4,7 +4,7 @@
             <div class="card-body shadow">
                 <div class="row">
                     <div class="col-9  d-flex align-items-center">
-                        SHOPPING ITEMS.
+                        <h4>SHOPPING ITEMS.</h4>
                     </div>
                     <div class="col-2 d-flex align-items-center">
                         <button class="btn btn-danger">+</button>

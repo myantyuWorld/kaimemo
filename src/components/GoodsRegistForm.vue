@@ -2,7 +2,7 @@
     <div class="card shadow">
         <div class="card-body">
             <div class="row">
-                <div class="col-9 d-flex align-items-center">Item Regist.</div>
+                <div class="col-9 d-flex align-items-center"><h4>Item Regist.</h4></div>
                 <div class="col-2 d-flex align-items-center">
                     <BaseButton color="btn-secondary rounded-circle btn--item--init " @on-click="emit('init-click')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
