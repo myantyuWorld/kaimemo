@@ -1,14 +1,19 @@
 <template>
-    <div class="mt-2">
+    <div class="">
         <div class="card">
             <div class="card-body shadow">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-9  d-flex align-items-center">
                         SHOPPING ITEMS.
                     </div>
-                    <div class="col"></div>
-                    <div class="col-2">
+                    <div class="col-2 d-flex align-items-center">
                         <button class="btn btn-danger">+</button>
+                    </div>
+                </div>
+                <hr class="my-1">
+                <div class="row">
+                    <div class="col">
+                        filter
                     </div>
                 </div>
                 <div class="row">
@@ -25,6 +30,7 @@
                         </div>
                     </div>
                 </div>
+                <hr class="my-1">
                 <transition-group name="list-complete">
                     <div class="list-complete-item" v-for="item in memoListRef" :key="item.id">
                         <GoodsListItem :item="item" 
@@ -43,23 +49,10 @@
 </template>
 
 <script setup>
-    import {ref} from 'vue'
 import GoodsListItem from './GoodsListItem.vue';
 
 const props = defineProps({ memoListRef: Object })
 const emit = defineEmits()
-
-const items = ref([])
-items.value = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-const add = () => {
-    items.value.splice(1, 0, 99)
-}
-
-const remove = () => {
-    items.value.splice(1, 1)
-}
-
 
 </script>
 
@@ -67,7 +60,8 @@ const remove = () => {
 .list-complete-item {
   transition: all 0.8s ease;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 30px;
+  width: 85%;
 }
 
 .list-complete-enter-from,
