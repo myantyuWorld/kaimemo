@@ -4,7 +4,8 @@
 body {
     font-family: "Raleway","Noto Sans JP", sans-serif;
     width: 100vw;
-    /* height: 100vh; */
+    background-color: rgb(77, 109, 45);
+    height: 100vh;
 }
 
 .wrapper {
@@ -13,10 +14,8 @@ body {
     /* align-items: center; */
     /* background: url("./background-image.jpg") center center no-repeat; */
     /* background: url("./sumaran20211275d-1.jpg") center center no-repeat; */
-    background: url("./4.jpg");
-    background-color: rgb(77, 109, 45);
-    background-size: auto;
-    padding: 10px;
+    /* background: url("./4.jpg"); */
+    padding: 3px;
     height: 100%;
  }
 

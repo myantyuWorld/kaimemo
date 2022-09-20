@@ -68,7 +68,6 @@ const route = useRoute()
 const router = useRouter()
 
 const moveGoodsList = () => {
-	console.log("call moveGoodsList!")
 	router.push({ name: `RouteGoodsList`, query: {user_id: route.query.user_id} })
 }
 </script>
