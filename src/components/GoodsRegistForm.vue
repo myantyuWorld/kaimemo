@@ -2,9 +2,8 @@
     <div class="card shadow">
         <div class="card-body">
             <div class="row">
-                <div class="col">Item Regist.</div>
-                <div class="col"></div>
-                <div class="col-2">
+                <div class="col-9 d-flex align-items-center"><h4>Item Regist.</h4></div>
+                <div class="col-2 d-flex align-items-center">
                     <BaseButton color="btn-secondary rounded-circle btn--item--init " @on-click="emit('init-click')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
@@ -14,6 +13,12 @@
                                 d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
                         </svg>
                     </BaseButton>
+                </div>
+            </div>
+            <hr class="my-1"/>
+            <div class="row">
+                <div class="col">
+                    filter
                 </div>
             </div>
             <div class="row">
@@ -31,7 +36,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-10">
+                <div class="col-9">
                     <div class="form-group">
                         <input type="email" class="form-control" placeholder="15文字以内で入力" v-model="memoComputed">
                     </div>
