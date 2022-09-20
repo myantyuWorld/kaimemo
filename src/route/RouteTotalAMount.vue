@@ -15,7 +15,7 @@
 					<div class="row mt-2">
 							<div class="col-auto">
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" value="0">
+									<input class="form-check-input" type="radio" value="0" checked>
 									<label class="form-check-label" for="inlineCheckbox1">🍔</label>
 								</div>
 							</div>
@@ -36,6 +36,13 @@
 					<div class="row mt-2">
 						<div class="col">
 							<input type="number" class="form-control" placeholder="１週間分購入した金額を入力"/>
+						</div>
+						<div class="col-2">
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="col">
+							<input type="text" class="form-control" placeholder="備考"/>
 						</div>
 						<div class="col-2">
 							<BaseButton color="btn-primary rounded-circle btn--item--add">
