@@ -42,10 +42,20 @@ const post = (path, params = null) => {
             params,
         }
     }
-    return api().post(path, options)
+    return api().post(path, params)
+}
+
+const put = (path, params = null) => {
+    return api().put(path, params)
+}
+
+const del = (path) => {
+    return api().delete(path)
 }
 
 export const apiBase = {
     get, 
-    post
+    post,
+    put,
+    del,
 }

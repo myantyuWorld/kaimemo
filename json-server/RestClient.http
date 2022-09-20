@@ -1,19 +1,18 @@
-POST http://localhost:3000/posts HTTP/1.1
+POST http://localhost:3000/goods HTTP/1.1
 content-type: application/json
 
 {
-    "id" : 4,
-    "title" : "from rest client 4",
-    "author": "myantyuWorld"
+    "id":"1",
+    "user_id":"demo",
+    "category_id":"0",
+    "memo":"tesaaaaat"
 }
 
+# GET http://localhost:3000/comments HTTP/1.1
 
+# GET http://localhost:3000/api/user HTTP/1.1
+# # GET http://localhost:3000/user HTTP/1.1
 
-GET http://localhost:3000/comments HTTP/1.1
-
-GET http://localhost:3000/api/user HTTP/1.1
-# GET http://localhost:3000/user HTTP/1.1
-
-GET http://localhost:3000/api/goods HTTP/1.1
-GET http://localhost:3000/api/goods?uesr_id=demo HTTP/1.1
-GET http://localhost:3000/goods?uesr_id=demo HTTP/1.1
+# GET http://localhost:3000/api/goods HTTP/1.1
+# GET http://localhost:3000/api/goods?uesr_id=demo HTTP/1.1
+# GET http://localhost:3000/goods?uesr_id=demo HTTP/1.1
