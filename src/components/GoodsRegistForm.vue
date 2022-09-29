@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-9">
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="15文字以内で入力" v-model="memoComputed">
+                        <input type="text" class="form-control" placeholder="15文字以内で入力" v-model="memoComputed">
                     </div>
                 </div>
                 <div class="col-2">

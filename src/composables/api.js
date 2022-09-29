@@ -49,8 +49,8 @@ const put = (path, params = null) => {
     return api().put(path, params)
 }
 
-const del = (path) => {
-    return api().delete(path)
+const del = (path, params = null) => {
+    return api().delete(path, {data: params})
 }
 
 export const apiBase = {

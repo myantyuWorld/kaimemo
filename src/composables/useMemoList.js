@@ -55,7 +55,9 @@ export const useMemoList = () => {
     const del = (id) => {
         const idx = findIndexById(id)
 
+        console.log(`memoのid : ${id}`)
         memoListRef.value.splice(idx, 1)
+        apiBase.del('goods', {id: id})
         saveStorage()
     }
 

@@ -20,14 +20,11 @@ GET http://localhost:3000/api/goods?uesr_id=demo HTTP/1.1
 
 # docker run --name json-server -p 3000:3000 -v `pwd`/db:/data json-server
 
-POST http://localhost:3000/api/goods HTTP/1.1
+DELETE http://localhost:3000/api/goods HTTP/1.1
 content-type: application/json
 
 {
-    "user_id":"myantyu",
-    "memo":"express",
-    "category_id":"0",
-    "checked":"0"
+    "id":"1664202100280"
 }
 
 # ---
