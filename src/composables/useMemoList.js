@@ -19,15 +19,10 @@ export const useMemoList = () => {
     const add = (memo, category) => {
         const now = new Date()
         const memoObj = {
-            id: now.getTime(),
             user_id: userId, 
             memo: memo, 
             category_id: category, 
-            checked: false,
-            insert_date: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
-            insert_time: `${now.getHours()}:${now.getMinutes()}`,
-            update_date: '',
-            update_time: ''
+            checked: "0",
         }
         memoListRef.value.push(memoObj)
         apiBase.post('goods', memoObj)

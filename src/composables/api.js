@@ -5,8 +5,8 @@ import axios from 'axios'
 const api = () => {
 
     const instance = axios.create({
-        baseURL : "http://localhost:3000/",
-        timeout: 5000
+        baseURL : "https://kaimemo-app.herokuapp.com/api/",
+        timeout: 50000
     })
 
     // こちらはレスポンスに処理を挟み込む

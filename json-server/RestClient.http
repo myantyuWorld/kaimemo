@@ -1,32 +1,21 @@
-POST http://localhost:3000/goods HTTP/1.1
+// -------------------
+// kaimemo-api(HEROKU)
+// -------------------
+POST https://kaimemo-app.herokuapp.com/api/goods HTTP/1.1
 content-type: application/json
 
 {
-    "id":"3",
     "user_id":"myantyu",
+    "memo":"express",
     "category_id":"0",
-    "memo":"tesaaaaat"
+    "checked":"0"
 }
+// -------------------
+// kaimemo-api(local)
+// -------------------
 
+GET http://localhost:3000/api/goods?uesr_id=demo HTTP/1.1
 
-# ---
-
-
-
-
-# GET http://localhost:3000/comments HTTP/1.1
-
-# GET http://localhost:3000/api/user HTTP/1.1
-# # GET http://localhost:3000/user HTTP/1.1
-
-# GET http://localhost:3000/api/goods HTTP/1.1
-
-
-
-GET http://localhost:8000 HTTP/1.1
-
-
-# GET http://localhost:3000/api/goods?uesr_id=demo HTTP/1.1
 # GET http://localhost:3000/goods?uesr_id=demo HTTP/1.1
 
 # docker run --name json-server -p 3000:3000 -v `pwd`/db:/data json-server
@@ -35,8 +24,24 @@ POST http://localhost:3000/api/goods HTTP/1.1
 content-type: application/json
 
 {
-    "user_id":"demo",
+    "user_id":"myantyu",
     "memo":"express",
     "category_id":"0",
     "checked":"0"
 }
+
+# ---
+
+// --------------------
+// RIB01
+// --------------------
+GET http://localhost:13000/ib/0125/ajax/get-widget-crdtwtdrwdt?brchNo=999&qlCd=99&accountNo=9999999 HTTP/1.1
+
+GET http://localhost:13000/ib/0125/ajax/get-widget-crdtwtdrwdt?brchNo=999 HTTP/1.1
+
+GET http://localhost:13000/ib/0125/ajax/get-widget-crdtwtdrwdt HTTP/1.1
+
+GET http://localhost:13000/ib/0125/ajax/get-widget-benereginfo HTTP/1.1
+
+GET http://localhost:13000/ib/0125/ajax/get-widget-benereginfo?brchNo=999 HTTP/1.1
+
