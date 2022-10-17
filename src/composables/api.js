@@ -5,7 +5,7 @@ import axios from 'axios'
 const api = () => {
 
     const instance = axios.create({
-        baseURL : "https://kaimemo-app.herokuapp.com/api/",
+        baseURL : "http://localhost:3000/api/",
         timeout: 50000
     })
 
