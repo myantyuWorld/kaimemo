@@ -4,7 +4,7 @@
 body {
     font-family: "Raleway","Noto Sans JP", sans-serif;
     width: 100vw;
-    background-color: rgb(77, 109, 45);
+    background-color: #ffffff;
     height: 100vh;
 }
 
@@ -32,7 +32,7 @@ body {
 
 .card {
     margin: 15px;
-    background-color: rgb(243, 236, 219);
+    background-color: #DFEAA6;
 }
 
 .fin {
